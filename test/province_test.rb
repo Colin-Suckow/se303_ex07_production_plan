@@ -47,6 +47,19 @@ class ProvinceTest < Minitest::Test
     end
   end
 
+  def test_province_string
+    assert_raises do
+        data = {
+        name: "String producers",
+        producers: "",
+        demand: 30,
+        price: 20
+      }
+      prov = Province.new(data)
+      prov.shortfall
+    end
+  end
+
   describe "no producers" do
     before do
       data = {

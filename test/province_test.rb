@@ -36,6 +36,17 @@ class ProvinceTest < Minitest::Test
     assert_equal(-10, @asia.profit)
   end
 
+  def test_province_empty_string
+    @asia.demand = ""
+    assert_raises do
+      @asia.shortfall
+    end
+
+    assert_raises do
+      @asia.profit
+    end
+  end
+
   describe "no producers" do
     before do
       data = {
